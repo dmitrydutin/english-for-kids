@@ -4,13 +4,13 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "webpack --mode development",
+    "start": "npm run serve",
     "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
     "watch": "webpack --mode development --watch",
     "serve": "webpack serve --mode development",
-    "start": "npm run serve",
-    "lint": "node node_modules/eslint/bin/eslint.js ./src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "node node_modules/eslint/bin/eslint.js ./src"
   },
   "keywords": [],
   "author": "",

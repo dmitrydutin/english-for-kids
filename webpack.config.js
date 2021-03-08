@@ -11,7 +11,7 @@ module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
         publicPath: process.env.ASSET_PATH || '/'
     },
     module: {
@@ -34,7 +34,7 @@ module.exports = {
     },
     devtool: isProduction ? false : 'source-map',
     devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
+        contentBase: path.resolve(__dirname, 'build'),
         compress: true,
         port: 9000,
         open: true,
@@ -44,8 +44,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
         new HTMLWebpackPlugin({
-            title: 'English for kids',
-            favicon: path.resolve(__dirname, 'src', 'assets', 'favicon', 'favicon.svg'),
+            template: path.resolve(__dirname, 'public', 'index.html'),
             inject: 'head',
             scriptLoading: 'defer',
             publicPath: ''
@@ -55,19 +54,19 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(__dirname, 'src', 'config', '_redirects'),
-                    to: path.resolve(__dirname, 'dist')
+                    to: path.resolve(__dirname, 'build')
                 },
                 {
                     from: path.resolve(__dirname, 'src', 'assets', 'images', 'categories'),
-                    to: path.resolve(__dirname, 'dist')
+                    to: path.resolve(__dirname, 'build')
                 },
                 {
                     from: path.resolve(__dirname, 'src', 'assets', 'images', 'common'),
-                    to: path.resolve(__dirname, 'dist')
+                    to: path.resolve(__dirname, 'build')
                 },
                 {
                     from: path.resolve(__dirname, 'src', 'assets', 'sounds'),
-                    to: path.resolve(__dirname, 'dist')
+                    to: path.resolve(__dirname, 'build')
                 }
             ]
         })
